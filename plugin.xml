@@ -4,7 +4,7 @@
 	<icon>prive/themes/spip/images/credit-card-32.png</icon>
   <version>2.32.1</version>
 	<categorie>outil</categorie>
-  <version_base>1.5.0</version_base>
+  <version_base>1.6.0</version_base>
   <etat>stable</etat>
   <description>Un module de paiement bancaire multi prestataires</description>
   <install>base/bank_install.php</install>
@@ -18,6 +18,10 @@
 	</pipeline>
 	<pipeline>
 		<nom>declarer_tables_principales</nom>
+		<inclure>base/bank_transactions.php</inclure>
+	</pipeline>
+	<pipeline>
+		<nom>declarer_tables_auxiliaires</nom>
 		<inclure>base/bank_transactions.php</inclure>
 	</pipeline>
 	<pipeline>

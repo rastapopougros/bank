@@ -127,6 +127,13 @@ function bank_upgrade($nom_meta_base_version,$version_cible){
 			sql_alter("table spip_transactions ADD erreur tinytext NOT NULL DEFAULT ''");
 			ecrire_meta($nom_meta_base_version,$current_version="1.5.0",'non');
 		}
+		// Ajouter la table spip_transactions_liens
+		if (spip_version_compare($current_version,"1.6.0","<=")){
+			include_spip('base/create');
+			include_spip('base/serial');
+			creer_base();
+			ecrire_meta($nom_meta_base_version,$current_version="1.6.0",'non');
+		}
 
 		bank_presta_install();
 	}

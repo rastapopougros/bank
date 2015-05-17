@@ -78,6 +78,26 @@ function bank_declarer_tables_principales($tables_principales){
 	return $tables_principales;
 }
 
+function bank_declarer_tables_auxiliaires($tables_auxiliaires){
+	$spip_transactions_liens = array(
+			"id_transaction"      => "bigint(21) DEFAULT '0' NOT NULL",
+			"id_objet"            => "bigint(21) DEFAULT '0' NOT NULL",
+			"objet"               => "VARCHAR (50) DEFAULT '' NOT NULL"
+	);
+
+	$spip_transactions_liens_key = array(
+			"PRIMARY KEY"         => "id_transaction,id_objet,objet",
+			"KEY id_transaction"  => "id_transaction"
+	);
+
+	$tables_auxiliaires['spip_transactions_liens'] = array(
+		'field' => &$spip_transactions_liens,
+		'key' => &$spip_transactions_liens_key
+	);
+
+	return $tables_auxiliaires;
+}
+
 function bank_declarer_tables_objets_sql($tables){
 	$tables['spip_transactions'] = array(
 		'page' => false,
